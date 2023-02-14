@@ -1,5 +1,5 @@
 API GESTAI POKEMON API
-Projeto de uma api restfull para controle de processos.
+Projeto de uma api restfull para controle de pokemons.
 
 
 how to use this api:
@@ -12,9 +12,7 @@ yarn sequelize-cli db:create - this create a database specifiqued on sequelise c
 and now run :
 yarn sequelize-cli db:migrate - for create the db and relations, use migrations for new changes on db.
 
-<!--  -->
-Four - run comand:
-yarn squelize-cli db:seed:all to run seeds for testing propose
+
 
 
 
