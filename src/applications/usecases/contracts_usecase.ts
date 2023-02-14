@@ -11,7 +11,8 @@ export default class PokeDexUseCase extends ResponseCodes implements IPokeDexUse
 
   public async getAllTeam(request: Request, response: Response): Promise<Response> {
     let result = null
-    if (request.query) {
+    console.log(request.query)
+    if (Object.keys(request.query).length>=1) {
       const {playerName}=request.query
       if(playerName){
         result = await this.pokeDexRepository.getTeamByPlayerName(playerName as string)
