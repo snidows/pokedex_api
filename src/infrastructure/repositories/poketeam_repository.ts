@@ -16,6 +16,18 @@ export default class PokeDexRepository implements IPokeDexRepository {
     }
   }
 
+  public async getTeamByPlayerName(playerName: string): Promise<Either<String, PokedexOutput[] | null>> {
+    try {
+      const result = await PokedexModel.findAll({
+        where:{playerName}
+      })
+      if (result === null || result === undefined) return right(null)
+      return right(result)
+    } catch (err) {
+      return left(err as String)
+    }
+  }
+
   public async getAllTeams(): Promise<Either<String, PokedexOutput[]>> {
     try {
       const result = await PokedexModel.findAll()
