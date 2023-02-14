@@ -1,0 +1,4 @@
+[submodule "src/infrastructure/database"]
+	path = src/infrastructure/database
+	url = https://github.com/hedrosistemas/pkg_database.git
+	branch = main

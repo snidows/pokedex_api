@@ -1,0 +1,11 @@
+TZ=America/Sao_Paulo3
+#env
+ENV=dev
+
+
+##host and db connection
+DB_HOST=localhost
+DB_USER=user
+DB_PASSWORD=user
+DB_NAME=pokedex
+DB_DIALECT=postgres
