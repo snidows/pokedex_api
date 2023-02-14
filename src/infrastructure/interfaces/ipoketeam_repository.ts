@@ -3,6 +3,7 @@ import { Either } from "@sweet-monads/either"
 
 export interface IPokeDexRepository {
   getTeamById(id: number): Promise<Either<String, PokedexOutput | null>>
+  getTeamByPlayerName(playerName: string): Promise<Either<String, PokedexOutput[] | null>>
   getAllTeams(): Promise<Either<String, PokedexOutput[]>>
   createTeam(userArea: PokedexInput): Promise<Either<String, PokedexOutput>>
   updateTeamById(id: number, userArea: PokedexInput): Promise<Either<String, null | PokedexOutput>>

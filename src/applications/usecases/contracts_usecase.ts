@@ -9,8 +9,20 @@ export default class PokeDexUseCase extends ResponseCodes implements IPokeDexUse
     super()
   }
 
-  public async getAllTeam(_request: Request, response: Response): Promise<Response> {
-    const result = await this.pokeDexRepository.getAllTeams()
+  public async getAllTeam(request: Request, response: Response): Promise<Response> {
+    let result = null
+    if (request.query) {
+      const {playerName}=request.query
+      if(playerName){
+        result = await this.pokeDexRepository.getTeamByPlayerName(playerName as string)
+      }else{
+        return this.forbidden(response,"query error")
+      }
+      
+    } else {
+      result = await this.pokeDexRepository.getAllTeams()
+    }
+
     if (result.isLeft()) return this.internal_server_error(response, result.value)
     else {
       if (result.value === null) return this.no_content(response)

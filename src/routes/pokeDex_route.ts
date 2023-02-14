@@ -16,6 +16,8 @@ pokeDex_routes.post(
   ValidatorSchema(PokedexPostSchema),
   process_request(pokeDex_usecase.createTeam.bind(pokeDex_usecase)),
 )
+
+
 // pokeDex_routes.get("/users/:id", process_request(users_usecase.getUsersById.bind(users_usecase)))
 // pokeDex_routes.put(
 //   "/users/:id",
