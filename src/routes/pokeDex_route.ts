@@ -2,7 +2,7 @@ import { process_request } from "middlewares/adapter_middleware"
 import { ValidatorSchema } from "middlewares/validator"
 import { Router } from "express"
 import PokeDexRepository from "@infrastructure/repositories/poketeam_repository"
-import PokeDexUseCase from "@applications/usecases/contracts_usecase"
+import PokeDexUseCase from "@applications/usecases/pokemon_usecase"
 import { PokedexPostSchema } from "@infrastructure/validations/pokeTeam.validation"
 
 const pokeDex_routes = Router()
