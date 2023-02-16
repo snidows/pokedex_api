@@ -2,7 +2,6 @@ import { Sequelize } from "sequelize"
 const dot_env = require("dotenv")
 const noded_env = process.env.NODE_ENV || "dev"
 dot_env.config({ path: `.params.${noded_env}` })
-console.log(process.env.DB_HOST)
 export const sequelize = new Sequelize(
   (process.env.DB_NAME as string) || "develop",
   (process.env.DB_USER as string) || "user",

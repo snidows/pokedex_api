@@ -22,7 +22,6 @@ export default class PokedexController extends ControllerBase {
 
   public async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params
-    console.log(id)
     const result = await this.pokedexUseCase.deleteTeamById(parseInt(id))
 
     if (result.isRight()) {
