@@ -1,6 +1,5 @@
 import { IDatabase } from "interfaces/IDatabase"
 import { Sequelize } from "sequelize"
-import { sequelize } from "./db"
 
 export class DataBase implements IDatabase {
   private _sequelizeConnection: Sequelize

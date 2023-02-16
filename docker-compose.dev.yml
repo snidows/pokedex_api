@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   database:
+    container_name: database
     image: postgres:14.1-alpine
     restart: always
     environment:
@@ -21,6 +22,11 @@ services:
       - 4444:4444
     environment:
       - NODE_ENV=dev
+      - DB_HOST=database
+      # - DB_USER=user
+      # - DB_PASSWORD=user
+      # - DB_NAME=pokedex
+      # - DB_DIALECT=postgres
     mem_limit: 1024M
     cpus: "1"
 volumes:

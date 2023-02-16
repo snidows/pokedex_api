@@ -12,7 +12,7 @@ FROM node:18.12.1-alpine
 WORKDIR /api
 RUN chmod -R 777 /api
 USER node
-COPY package.json yarn.lock .env.* .sequelizerc  ./
+COPY package.json yarn.lock .params.* .sequelizerc  ./
 RUN yarn install --production --frozen-lockfile
 COPY --from=build /build/dist ./
 
