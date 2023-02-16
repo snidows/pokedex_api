@@ -3,6 +3,7 @@ import { PokedexInput, PokedexOutput } from "@infrastructure/database/interfaces
 import { IPokeDexRepository } from "@infrastructure/interfaces/ipoketeam_repository"
 import { Either, left, right } from "@shared/either"
 import { BaseError } from "@interfaces/base_error"
+import { InternalError } from "@applications/errors/internal_error"
 
 export default class PokeDexUseCase implements IPokeDexUsecase {
   constructor(private readonly pokeDexRepository: IPokeDexRepository) {}
@@ -29,7 +30,7 @@ export default class PokeDexUseCase implements IPokeDexUsecase {
 
   public async createTeam(team: PokedexInput): Promise<Either<BaseError, PokedexOutput>> {
     const result = await this.pokeDexRepository.createTeam(team)
-    if (result.isLeft()) return left(result.value)
+    if (result.isLeft()) return left(new InternalError('Internal Server Error'))
     else return right(result.value)
   }
 

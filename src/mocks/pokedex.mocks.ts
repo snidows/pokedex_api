@@ -29,6 +29,21 @@ export const teamMockOutput:any= {
   deleted_at: null,
 }
 
+export const teamsMockByPlayers:any= [{
+  id: 90,
+  timeName: "batata",
+  playerName: "lucas",
+  teamMembers: [
+    '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png","id":11,"name":"metapod"}',
+    '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png","id":17,"name":"pidgeotto"}',
+    '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png","id":18,"name":"pidgeot"}',
+    '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png","id":10,"name":"caterpie"}',
+  ],
+  updated_at: "2023-02-16T11:10:16.218Z",
+  created_at: "2023-02-16T11:10:16.218Z",
+  deleted_at: null,
+}
+]
 export const teamMockInput:any = {
   timeName: "batata",
   playerName: "lucas",
@@ -38,5 +53,10 @@ export const teamMockInput:any = {
     '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png","id":18,"name":"pidgeot"}',
     '{"avatarUrl":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png","id":10,"name":"caterpie"}',
   ]
+}
+
+export const teamMockInputError:any = {
+  timeName: "batata",
+  playerName: "lucas",
 }
 
