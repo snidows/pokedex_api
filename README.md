@@ -19,4 +19,5 @@ yarn sequelize-cli db:migrate - for create the db and relations, use migrations 
 And use any software of you preference like insominia to test this api.
 
 
-
+for run using docker use this comand:
+sudo docker-compose -f docker-compose.dev.yml up -d --build 

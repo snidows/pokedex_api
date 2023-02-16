@@ -1,0 +1,14 @@
+version: "2.2"
+
+services:
+  api:
+    container_name: api
+    restart: unless-stopped
+    build: .
+    ports:
+      - 4444:4444
+    environment:
+      - NODE_ENV=development
+    mem_limit: 1024M
+    cpus: "1"
+
