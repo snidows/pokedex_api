@@ -20,7 +20,9 @@
       "@models/*": ["models/*"],
       "@routes/*": ["routes/*"],
       "@applications/*": ["applications/*"],
-      "@interfaces/*": ["interfaces/*"]
+      "@interfaces/*": ["interfaces/*"],
+      "@shared/*": ["shared/*"],
+      "@mocks/*": ["mocks/*"]
     },
     "removeComments": true
   },

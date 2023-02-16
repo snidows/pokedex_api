@@ -1,17 +1,18 @@
 import { Response} from "express"
 
-export class ResponseCodes {
-  public internal_server_error(res: Response, value: any): Response {
-    return res.status(500).json(value)
+export class ControllerBase {
+
+  public internal_server_error(response:Response,value:any): Response {
+    return response.status(500).json(value)
   }
-  public ok(res: Response, value: any): Response {
-    return res.status(200).json(value)
+  public ok(response:Response,value:any): Response {
+    return response.status(200).json(value)
   }
   public created(res: Response, value: any): Response {
     return res.status(201).json(value)
   }
   public no_content(res: Response): Response {
-    return res.status(204).end()
+    return res.status(403).end()
   }
   public unauthorized(res: Response, value: any): Response {
     return res.status(401).json(value)

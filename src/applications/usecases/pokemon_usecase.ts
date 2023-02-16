@@ -1,75 +1,43 @@
 import { IPokeDexUsecase } from "@applications/interfaces/ipokeDex_usecase"
-import { PokedexInput } from "@infrastructure/database/interfaces/PokeTeam"
+import { PokedexInput, PokedexOutput } from "@infrastructure/database/interfaces/PokeTeam"
 import { IPokeDexRepository } from "@infrastructure/interfaces/ipoketeam_repository"
-import { Request, Response } from "express"
-import { ResponseCodes } from "shared/responses"
+import { Either, left, right } from "@shared/either"
+import { BaseError } from "@interfaces/base_error"
 
-export default class PokeDexUseCase extends ResponseCodes implements IPokeDexUsecase {
-  constructor(private readonly pokeDexRepository: IPokeDexRepository) {
-    super()
-  }
+export default class PokeDexUseCase implements IPokeDexUsecase {
+  constructor(private readonly pokeDexRepository: IPokeDexRepository) {}
 
-  public async getAllTeam(request: Request, response: Response): Promise<Response> {
-    let result = null
-    console.log(request.query)
-    if (Object.keys(request.query).length>=1) {
-      const {playerName}=request.query
-      if(playerName){
-        result = await this.pokeDexRepository.getTeamByPlayerName(playerName as string)
-      }else{
-        return this.forbidden(response,"query error")
-      }
-      
+  public async getAllTeam(query: any): Promise<Either<BaseError, PokedexOutput[]>> {
+    if (query) {
+      const result = await this.pokeDexRepository.getAllTeamsByPlayerName(query)
+      if (result.isRight()) return right(result.value)
+      else return left(result.value)
     } else {
-      result = await this.pokeDexRepository.getAllTeams()
-    }
-
-    if (result.isLeft()) return this.internal_server_error(response, result.value)
-    else {
-      if (result.value === null) return this.no_content(response)
-      else return this.ok(response, result.value)
+      const result = await this.pokeDexRepository.getAllTeams()
+      if (result.isRight()) {
+        return right(result.value)
+      }
+      return left(result.value)
     }
   }
 
-  public async getTeamById(request: Request, response: Response): Promise<Response> {
-    const { id } = request.params
-    const result = await this.pokeDexRepository.getTeamById(parseInt(id))
-    if (result.isLeft()) return this.internal_server_error(response, result.value)
-    else {
-      if (result.value === null) return this.no_content(response)
-      else return this.ok(response, result.value)
-    }
+  public async getTeamById(id: number): Promise<Either<BaseError, PokedexOutput>> {
+    const result = await this.pokeDexRepository.getTeamById(id)
+    if (result.isRight()) return right(result.value)
+    else return left(result.value)
   }
 
-  public async createTeam(request: Request, response: Response): Promise<Response> {
-    const body: PokedexInput = request.body
-    const result = await this.pokeDexRepository.createTeam(body)
-
-    if (result.isLeft()) return this.internal_server_error(response, result.value)
-    else {
-      if (result.value === null) return this.no_content(response)
-      else return this.created(response, result.value)
-    }
+  public async createTeam(team: PokedexInput): Promise<Either<BaseError, PokedexOutput>> {
+    const result = await this.pokeDexRepository.createTeam(team)
+    if (result.isLeft()) return left(result.value)
+    else return right(result.value)
   }
 
-  public async updateTeams(request: Request, response: Response): Promise<Response> {
-    const { id } = request.params
-    const body: PokedexInput = request.body
-    const result = await this.pokeDexRepository.updateTeamById(parseInt(id), body)
-    if (result.isLeft()) return this.internal_server_error(response, result.value)
-    else {
-      if (result.value === null) return this.no_content(response)
-      else return this.ok(response, result.value)
-    }
-  }
+  public async deleteTeamById(id: number): Promise<Either<BaseError, boolean>> {
+    const result = await this.pokeDexRepository.deleteTeamById(id)
 
-  public async deleteContracts(request: Request, response: Response): Promise<Response> {
-    const { id } = request.params
-    const result = await this.pokeDexRepository.deleteTeamById(parseInt(id))
-    if (result.isLeft()) return this.internal_server_error(response, result.value)
-    else {
-      if (result.value === false) return this.not_found(response)
-      else return this.ok(response, result.value)
-    }
+    if (result.isLeft()) return left(result.value)
+    //aqui eu fiquei em duvida, se eu pre processo no use case caso existir ou nao, ou no controller....
+    return right(result.value)
   }
 }

@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start:dev": "NODE_ENV=dev yarn nodemon -r tsconfig-paths/register src/main.ts"
+    "start:dev": "NODE_ENV=dev yarn nodemon -r tsconfig-paths/register src/main.ts",
+    "test": "jest"
   },
   "dependencies": {
-    "@sweet-monads/either": "^3.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -21,16 +21,20 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.28.0",
+    "supertest": "^6.3.3",
     "tsc": "^2.0.4"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
     "@types/express": "4",
+    "@types/jest": "^29.4.0",
     "@types/node": "^18.11.17",
     "@types/sequelize": "^4.28.14",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "babel-register": "^6.26.0",
     "eslint": "^8.31.0",
+    "jest": "^29.4.3",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.2",
     "sequelize-cli": "^6.5.2",

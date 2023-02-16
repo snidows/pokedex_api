@@ -1,8 +1,9 @@
-import { Request, Response } from "express"
+import { PokedexInput, PokedexOutput } from "@infrastructure/database/interfaces/PokeTeam"
+import { BaseError } from "@interfaces/base_error"
+import { Either } from "@shared/either"
 export interface IPokeDexUsecase {
-  getAllTeam(_request: Request, response: Response): Promise<Response>
-  getTeamById(request: Request, response: Response): Promise<Response>
-  createTeam(request: Request, response: Response): Promise<Response>
-  updateTeams(request: Request, response: Response): Promise<Response>
-  deleteContracts(request: Request, response: Response): Promise<Response>
+  getAllTeam(query: any):Promise<Either<BaseError, PokedexOutput[]>>
+  getTeamById(id:number): Promise<Either<BaseError, PokedexOutput>>
+  createTeam(team: PokedexInput):Promise<Either<BaseError, PokedexOutput>>
+  deleteTeamById(id: number): Promise<Either<BaseError, boolean>>
 }

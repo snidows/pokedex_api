@@ -7,7 +7,7 @@ class PokedexModel extends Model<PokedexAttributes, PokedexInput> implements Pok
   public id!: number
   public timeName!: string
   public playerName!: string
-  public teamMembers!: string
+  public teamMembers!: string[]
   public readonly created_at!: Date
   public readonly updated_at!: Date
   public readonly deleted_at!: Date
