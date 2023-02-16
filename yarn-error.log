@@ -1,5 +1,5 @@
 Arguments: 
-  /home/lucas/.nvm/versions/node/v18.12.1/bin/node /home/lucas/.nvm/versions/node/v18.12.1/bin/yarn add @babel/proposal-object-rest-spread
+  /home/lucas/.nvm/versions/node/v18.12.1/bin/node /home/lucas/.nvm/versions/node/v18.12.1/bin/yarn add @babelregister -D
 
 PATH: 
   /home/lucas/.nvm/versions/node/v18.12.1/bin:/home/lucas/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
@@ -14,8 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel%2fproposal-object-rest-spread: Not found
-      at params.callback [as _callback] (/home/lucas/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:66145:18)
+  Error: https://registry.yarnpkg.com/@babelregister: Request "https://registry.yarnpkg.com/@babelregister" returned a 405
+      at params.callback [as _callback] (/home/lucas/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:66154:18)
       at self.callback (/home/lucas/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:513:28)
       at Request.<anonymous> (/home/lucas/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:141862:10)
@@ -77,7 +77,7 @@ npm manifest:
       "jest": "^29.4.3",
       "nodemon": "^2.0.20",
       "prettier": "^2.8.2",
-      "sequelize-cli": "^6.5.2",
+      "sequelize-cli": "^6.6.0",
       "sequelize-cli-typescript": "^3.2.0-c",
       "ts-jest": "^29.0.3",
       "ts-node": "^10.9.1",
@@ -5355,7 +5355,7 @@ Lockfile:
       umzug "^2.1.0"
       yargs "^8.0.2"
   
-  sequelize-cli@^6.5.2:
+  sequelize-cli@^6.6.0:
     version "6.6.0"
     resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-6.6.0.tgz#f11588c93b53321637f8aedd5b10ed57d6d06482"
     integrity sha512-FwTClhGRvXKanFRHMZbgfXOBV8UC2B3VkE0WOdW1n39/36PF4lWyurF95f246une/V4eaO3a7/Ywvy++3r+Jmg==
