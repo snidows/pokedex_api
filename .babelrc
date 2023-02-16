@@ -28,7 +28,6 @@
           "@middlewares": "./src/middlewares"
         }
       }
-    ],
-    "@babel/proposal-object-rest-spread"
+    ]
   ]
 }
