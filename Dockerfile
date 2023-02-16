@@ -5,7 +5,7 @@ COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
 RUN yarn build
-# RUN yarn add dotenv@latest
+
 
 FROM node:18.12.1-alpine
 
