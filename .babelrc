@@ -9,5 +9,26 @@
       }
     ],
     "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@bussiness": "./src/bussiness",
+          "@infrastructure": "./src/infrastructure",
+          "@interfaces": "./src/middlewares",
+          "@models": "./src/models",
+          "@routes": "./src/routes",
+          "@applications": "./src/applications",
+          "@interfaces": "./src/interfaces",
+          "@shared": "./src/shared",
+          "@mocks": "./src/mocks",
+          "@middlewares": "./src/middlewares"
+        }
+      }
+    ],
+    "@babel/proposal-object-rest-spread"
   ]
 }

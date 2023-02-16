@@ -1,4 +1,4 @@
-import { AppModule } from "appModule"
+import { AppModule } from "./appModule"
 
 async function start() {
   const app_module = new AppModule()

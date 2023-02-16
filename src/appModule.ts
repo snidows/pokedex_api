@@ -1,8 +1,8 @@
 import { Environment } from "@infrastructure/environments"
-import { IEnvironments } from "interfaces/IEnvironments"
+import { IEnvironments } from "./interfaces/IEnvironments"
 import { IDatabase } from "interfaces/IDatabase"
 import { DataBase } from "@infrastructure/database/database"
-import { server_hosting } from "server"
+import { server_hosting } from "./server"
 export class AppModule {
   private environment: IEnvironments
   private data_base: IDatabase

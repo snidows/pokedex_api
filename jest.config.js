@@ -19,6 +19,6 @@ module.exports = {
     '@middlewares/(.*)': '<rootDir>/src/middlewares/$1',
     '@shared/(.*)': '<rootDir>/src/shared/$1',
     '@mocks/(.*)': '<rootDir>/src/mocks/$1',
-    '@routes/(.*)': '<rootDir>/src/routes/$1'
+    '@routes/(.*)': '<rootDir>/src/routes/$1',
   }
 }

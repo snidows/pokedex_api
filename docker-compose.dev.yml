@@ -1,8 +1,20 @@
-version: "2.2"
+version: "3.8"
 
 services:
-  api:
-    container_name: api
+  database:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user
+    ports:
+      - "5432:5432"
+    mem_limit: 1024M
+    cpus: "1"
+    volumes:
+      - database:/var/lib/postgresql/data
+  api_pokedex:
+    container_name: api_pokedex
     restart: unless-stopped
     build: .
     ports:
@@ -11,4 +23,6 @@ services:
       - NODE_ENV=development
     mem_limit: 1024M
     cpus: "1"
-
+volumes:
+  database:
+    driver: local

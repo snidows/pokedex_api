@@ -21,3 +21,7 @@ And use any software of you preference like insominia to test this api.
 
 for run using docker use this comand:
 sudo docker-compose -f docker-compose.dev.yml up -d --build 
+
+REMEMBER EVERY TIME IF RECREATE A POSTGRES YOU NEED TO RUN A DB MIGRATE (MANUAL)
+
+if you need, db migrate and create after sync system, but it delete all data in system....

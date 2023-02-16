@@ -22,7 +22,8 @@
       "@applications/*": ["applications/*"],
       "@interfaces/*": ["interfaces/*"],
       "@shared/*": ["shared/*"],
-      "@mocks/*": ["mocks/*"]
+      "@mocks/*": ["mocks/*"],
+      "@middlewares/*": ["middlewares/*"],      
     },
     "removeComments": true
   },
